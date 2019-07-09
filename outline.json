@@ -1,0 +1,367 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/JSON",
+    "definitions": {
+        "JSON": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "meta": {
+                    "$ref": "#/definitions/Meta"
+                },
+                "response": {
+                    "$ref": "#/definitions/Response"
+                }
+            },
+            "required": [
+                "meta",
+                "response"
+            ],
+            "title": "JSON"
+        },
+        "Meta": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "requestId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code",
+                "requestId"
+            ],
+            "title": "Meta"
+        },
+        "Response": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "venues": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Venue"
+                    }
+                },
+                "confident": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "confident",
+                "venues"
+            ],
+            "title": "Response"
+        },
+        "Venue": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "#/definitions/Location"
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Category"
+                    }
+                },
+                "venuePage": {
+                    "$ref": "#/definitions/VenuePage"
+                },
+                "referralId": {
+                    "$ref": "#/definitions/ReferralID"
+                },
+                "hasPerk": {
+                    "type": "boolean"
+                },
+                "delivery": {
+                    "$ref": "#/definitions/Delivery"
+                }
+            },
+            "required": [
+                "categories",
+                "hasPerk",
+                "id",
+                "location",
+                "name",
+                "referralId"
+            ],
+            "title": "Venue"
+        },
+        "Category": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "pluralName": {
+                    "type": "string"
+                },
+                "shortName": {
+                    "type": "string"
+                },
+                "icon": {
+                    "$ref": "#/definitions/CategoryIcon"
+                },
+                "primary": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "icon",
+                "id",
+                "name",
+                "pluralName",
+                "primary",
+                "shortName"
+            ],
+            "title": "Category"
+        },
+        "CategoryIcon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "prefix": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "suffix": {
+                    "$ref": "#/definitions/Suffix"
+                }
+            },
+            "required": [
+                "prefix",
+                "suffix"
+            ],
+            "title": "CategoryIcon"
+        },
+        "Delivery": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "provider": {
+                    "$ref": "#/definitions/Provider"
+                }
+            },
+            "required": [
+                "id",
+                "provider",
+                "url"
+            ],
+            "title": "Delivery"
+        },
+        "Provider": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "icon": {
+                    "$ref": "#/definitions/ProviderIcon"
+                }
+            },
+            "required": [
+                "icon",
+                "name"
+            ],
+            "title": "Provider"
+        },
+        "ProviderIcon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "prefix": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "sizes": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "prefix",
+                "sizes"
+            ],
+            "title": "ProviderIcon"
+        },
+        "Location": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "crossStreet": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "number"
+                },
+                "lng": {
+                    "type": "number"
+                },
+                "labeledLatLngs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LabeledLatLng"
+                    }
+                },
+                "distance": {
+                    "type": "integer"
+                },
+                "postalCode": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "cc": {
+                    "$ref": "#/definitions/Cc"
+                },
+                "city": {
+                    "$ref": "#/definitions/City"
+                },
+                "state": {
+                    "$ref": "#/definitions/City"
+                },
+                "country": {
+                    "$ref": "#/definitions/Country"
+                },
+                "formattedAddress": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "neighborhood": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cc",
+                "country",
+                "distance",
+                "formattedAddress",
+                "lat",
+                "lng",
+                "state"
+            ],
+            "title": "Location"
+        },
+        "LabeledLatLng": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "label": {
+                    "$ref": "#/definitions/Label"
+                },
+                "lat": {
+                    "type": "number"
+                },
+                "lng": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "label",
+                "lat",
+                "lng"
+            ],
+            "title": "LabeledLatLng"
+        },
+        "VenuePage": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "integer"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "VenuePage"
+        },
+        "Suffix": {
+            "type": "string",
+            "enum": [
+                ".png"
+            ],
+            "title": "Suffix"
+        },
+        "Cc": {
+            "type": "string",
+            "enum": [
+                "US"
+            ],
+            "title": "Cc"
+        },
+        "City": {
+            "type": "string",
+            "enum": [
+                "New York",
+                "NY"
+            ],
+            "title": "City"
+        },
+        "Country": {
+            "type": "string",
+            "enum": [
+                "United States"
+            ],
+            "title": "Country"
+        },
+        "Label": {
+            "type": "string",
+            "enum": [
+                "display"
+            ],
+            "title": "Label"
+        },
+        "ReferralID": {
+            "type": "string",
+            "enum": [
+                "v-1562713954"
+            ],
+            "title": "ReferralID"
+        }
+    }
+}
