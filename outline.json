@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/JSON",
+    "$ref": "#/definitions/Map",
     "definitions": {
-        "JSON": {
+        "Map": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -17,7 +17,7 @@
                 "meta",
                 "response"
             ],
-            "title": "JSON"
+            "title": "Map"
         },
         "Meta": {
             "type": "object",
