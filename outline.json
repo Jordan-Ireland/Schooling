@@ -1,23 +1,23 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/map/Map",
-    "map": {
-        "Map": {
+    "$ref": "#/definitions/Map",
+    "definitions": {
+        "map": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
                 "meta": {
-                    "$ref": "#/map/Meta"
+                    "$ref": "#/definitions/Meta"
                 },
                 "response": {
-                    "$ref": "#/map/Response"
+                    "$ref": "#/definitions/Response"
                 }
             },
             "required": [
                 "meta",
                 "response"
             ],
-            "title": "Map"
+            "title": "map"
         },
         "Meta": {
             "type": "object",
@@ -43,7 +43,7 @@
                 "venues": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/map/Venue"
+                        "$ref": "#/definitions/Venue"
                     }
                 },
                 "confident": {
@@ -67,25 +67,25 @@
                     "type": "string"
                 },
                 "location": {
-                    "$ref": "#/map/Location"
+                    "$ref": "#/definitions/Location"
                 },
                 "categories": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/map/Category"
+                        "$ref": "#/definitions/Category"
                     }
                 },
                 "venuePage": {
-                    "$ref": "#/map/VenuePage"
+                    "$ref": "#/definitions/VenuePage"
                 },
                 "referralId": {
-                    "$ref": "#/map/ReferralID"
+                    "$ref": "#/definitions/ReferralID"
                 },
                 "hasPerk": {
                     "type": "boolean"
                 },
                 "delivery": {
-                    "$ref": "#/map/Delivery"
+                    "$ref": "#/definitions/Delivery"
                 }
             },
             "required": [
@@ -115,7 +115,7 @@
                     "type": "string"
                 },
                 "icon": {
-                    "$ref": "#/map/CategoryIcon"
+                    "$ref": "#/definitions/CategoryIcon"
                 },
                 "primary": {
                     "type": "boolean"
@@ -143,7 +143,7 @@
                     ]
                 },
                 "suffix": {
-                    "$ref": "#/map/Suffix"
+                    "$ref": "#/definitions/Suffix"
                 }
             },
             "required": [
@@ -168,7 +168,7 @@
                     ]
                 },
                 "provider": {
-                    "$ref": "#/map/Provider"
+                    "$ref": "#/definitions/Provider"
                 }
             },
             "required": [
@@ -186,7 +186,7 @@
                     "type": "string"
                 },
                 "icon": {
-                    "$ref": "#/map/ProviderIcon"
+                    "$ref": "#/definitions/ProviderIcon"
                 }
             },
             "required": [
@@ -242,7 +242,7 @@
                 "labeledLatLngs": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/map/LabeledLatLng"
+                        "$ref": "#/definitions/LabeledLatLng"
                     }
                 },
                 "distance": {
@@ -253,16 +253,16 @@
                     "format": "integer"
                 },
                 "cc": {
-                    "$ref": "#/map/Cc"
+                    "$ref": "#/definitions/Cc"
                 },
                 "city": {
-                    "$ref": "#/map/City"
+                    "$ref": "#/definitions/City"
                 },
                 "state": {
-                    "$ref": "#/map/City"
+                    "$ref": "#/definitions/City"
                 },
                 "country": {
-                    "$ref": "#/map/Country"
+                    "$ref": "#/definitions/Country"
                 },
                 "formattedAddress": {
                     "type": "array",
@@ -290,7 +290,7 @@
             "additionalProperties": false,
             "properties": {
                 "label": {
-                    "$ref": "#/map/Label"
+                    "$ref": "#/definitions/Label"
                 },
                 "lat": {
                     "type": "number"
