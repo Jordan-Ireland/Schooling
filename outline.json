@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/Map",
+    "$ref": "#/definitions/map",
     "definitions": {
         "map": {
             "type": "object",
