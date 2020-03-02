@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/e53ceda85b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+    <style type="text/css">
+        .header {
+            text-align: center;
+            background-color: rgb(136, 185, 229);
+            height: 70px;
+            line-height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="pageLoader">
+        <img src="{{url_for('static', filename='images/loading.gif')}}" />
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 audio">
+                <audio ontimeupdate="isPlaying(this)" id="audio-cont">
+                    <source id="audio-source" type="audio/mpeg">
+                </audio>
+                <div class="audio-controller">
+                    <button class="audio-button" id="play" onclick="AudioControls(true)"><i class="far fa-play-circle"></i></button>
+                    <button class="audio-button hidden" id="pause" onclick="AudioControls(false)"><i class="far fa-pause-circle"></i></button>
+                </div>
+                <div id="progress-bar"></div>
+            </div>
+            <div id="chart" class="chart col-lg-8 col-sm-12"></div>
+            <div class="col-lg-4 col-sm-12">
+                <div id="tropes">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="2"><select id="school" onchange="UpdateSchool(this.value, true)"></select></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="class_checkbox" id="fight"><p style="margin-left:60px;">FIGHT</p></div></td>
+                                <th scope="row"><p id="fight-times">5 Times</p></th>
+                            </tr>
+                            <tr>
+                                <td><div class="class_checkbox" id="victory"><p style="margin-left:60px;">VICTORY</p></div></td>
+                                <td><div class="class_checkbox" id="win_won"><p style="margin-left:60px;">WIN / WON</p></div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="class_checkbox" id="rah"><p style="margin-left:60px;">RAH</p></div></td>
+                                <td><div class="class_checkbox" id="nonsense"><p style="margin-left:60px;">Nonsense</p></div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="class_checkbox" id="colors"><p style="margin-left:60px;">Colors</p></div></td>
+                                <td><div class="class_checkbox" id="men"><p style="margin-left:60px;">Men/Sons</p></div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="class_checkbox" id="opponents"><p style="margin-left:60px;">Opponents</p></div></td>
+                                <td><div class="class_checkbox" id="spelling"><p style="margin-left:60px;">Spelling</p></div></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" colspan="2" id="totalTropes"></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+                <img src="{{url_for('static', filename='images/loading.gif')}}" class="loadingchart" id="loading" />
+        <div class="row">
+            <h2 style="margin:25px auto; background-color:aliceblue; width:100%; padding:25px; text-align:center">Song Analysis</h2>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div id="custom_chart"></div>
+                <p id="song-analysis">This is where the song analysis will go</p>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row" style="margin-top:5em">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <h3 style="text-align:center">Spotify Analytics</h3><br />
+                <div id=custom-chart2></div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row" style="margin-top:25px; min-height:450px;">
+            <div class="col-12">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+</body>
+</html>
